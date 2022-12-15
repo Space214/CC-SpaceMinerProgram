@@ -14,37 +14,37 @@ MineSizeY = 0
 function Move(Action)
 	if Action == "turn left" then
 		if TurtleRot == "north" then
-			TurtleRot == "west"
+			TurtleRot = "west"
 			turtle.turnLeft() 
 		end
 		if TurtleRot == "east" then
-			TurtleRot == "north"
+			TurtleRot = "north"
 			turtle.turnLeft() 
 		end
 		if TurtleRot == "south" then
-			TurtleRot == "east"
+			TurtleRot = "east"
 			turtle.turnLeft() 
 		end
 		if TurtleRot == "west" then
-			TurtleRot == "south"
+			TurtleRot = "south"
 			turtle.turnLeft() 
 		end
 	end
 	if Action == "turn right" then
 		if TurtleRot == "north" then
-			TurtleRot == "east"
+			TurtleRot = "east"
 			turtle.turnRight()  
 		end
 		if TurtleRot == "east" then
-			TurtleRot == "south"
+			TurtleRot = "south"
 			turtle.turnRight() 
 		end
 		if TurtleRot == "south" then
-			TurtleRot == "west"
+			TurtleRot = "west"
 			turtle.turnRight() 
 		end
 		if TurtleRot == "west" then
-			TurtleRot == "north"
+			TurtleRot = "north"
 			turtle.turnRight() 
 		end
 	end
