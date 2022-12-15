@@ -69,6 +69,7 @@ function RemoveJunk()
 		JunkSlot = JunkSlot + 1
 	end
 	JunkSlot = 1
+	turtle.select(1)
 end
 
 -- Movement function
