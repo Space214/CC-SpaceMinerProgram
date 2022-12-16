@@ -1,14 +1,14 @@
 -- Variables
-TurtleX = 992 -- Starting Location
+TurtleX = 961 -- Starting Location
 TurtleY = 70 -- Starting Location
 TurtleZ = -788 -- Starting Location
 TurtleRot = "north" -- Starting Rotation
-StartX = 993 -- Mine Location
-StartZ = -763 -- Mine Location
-MineUpperY = 63 -- Mine Upper Location
-MineLowerY = 54 -- Mine Lower Location
-MineSizeX = 14 -- Mine Size (must be 2,4,6,8,10,12,14,16,ect...)
-MineSizeZ = -14 -- Mine Size (must be 2,4,6,8,10,12,14,16,ect...)
+StartX = 996 -- Mine Location
+StartZ = -820 -- Mine Location
+MineUpperY = 69 -- Mine Upper Location
+MineLowerY = 39 -- Mine Lower Location
+MineSizeX = 16 -- Mine Size (must be 2,4,6,8,10,12,14,16,ect...)
+MineSizeZ = -16 -- Mine Size (must be 2,4,6,8,10,12,14,16,ect...)
 CollectDeepslate = false
 
 SelectedSlot = 1;
@@ -231,7 +231,7 @@ end
 -- Mining function
 function Mineblocks()
 	while (MineLowerY - TurtleY) < 0 do
-		while TurtleX < StartX + MineSizeX do
+		while TurtleX <= StartX + MineSizeX do
 			while TurtleZ > StartZ + MineSizeZ do
 				if turtle.detect() == false then
 					Move("forward")
@@ -261,11 +261,13 @@ function Mineblocks()
 				Refuel()
 			end
 			Move("left")
-			if turtle.detect() == false then
-				Move("forward")
-			else
-				turtle.dig()
-				Move("forward")
+			if TurtleX < StartX + MineSizeX - 1 then
+				if turtle.detect() == false then
+					Move("forward")
+				else
+					turtle.dig()
+					Move("forward")
+				end
 			end
 			Refuel()
 			RemoveJunk()
