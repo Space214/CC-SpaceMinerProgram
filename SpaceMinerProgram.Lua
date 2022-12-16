@@ -59,9 +59,19 @@ function RemoveJunk()
 				turtle.drop()
 			end
 		end
+		if turtle.getItemCount() > 0 then
+			if JunkData.name == "minecraft:tuff" then
+				turtle.drop()
+			end
+		end
 		if CollectDeepslate == false then
 			if turtle.getItemCount() > 0 then
 				if JunkData.name == "minecraft:deepslate" then
+					turtle.drop()
+				end
+			end
+			if turtle.getItemCount() > 0 then
+				if JunkData.name == "minecraft:cobbled_deepslate" then
 					turtle.drop()
 				end
 			end
@@ -291,7 +301,7 @@ function Mineblocks()
 	end
 	
 	while (MineLowerY - TurtleY) < 0 do
-		while TurtleX < StartX + MineSizeX do
+		while TurtleX <= StartX + MineSizeX do
 			while TurtleZ > StartZ + MineSizeZ do
 				if turtle.detect() == false then
 					Move("forward")
@@ -321,11 +331,13 @@ function Mineblocks()
 				Refuel()
 			end
 			Move("left")
-			if turtle.detect() == false then
-				Move("forward")
-			else
-				turtle.dig()
-				Move("forward")
+			if TurtleX < StartX + MineSizeX - 1 then
+				if turtle.detect() == false then
+					Move("forward")
+				else
+					turtle.dig()
+					Move("forward")
+				end
 			end
 			Refuel()
 			RemoveJunk()
